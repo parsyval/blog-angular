@@ -1,0 +1,25 @@
+<div class="container">
+  <div>
+    <acme-navbar/>
+  </div>
+
+  <div ng-repeat="school in ctrl.schools" class="row">
+    <div class="col-md-2">
+      Formation
+    </div>
+    <div>
+      {{school.year}}
+      {{school.description}}
+      {{school.place}}
+    </div>
+  </div>
+
+  <div ng-repeat="skill in ctrl.skills">
+    {{skill.name}}
+    {{skill.words}}
+  </div>
+
+  <div ng-repeat="exp in ctrl.exps">
+    {{exp.company}}
+  </div>
+</div>

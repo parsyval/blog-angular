@@ -1,0 +1,48 @@
+<div class="container">
+  <div>
+    <acme-navbar/>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      Formation
+    </div>
+    <div class="col-md-8">
+      <div ng-repeat="school in ctrl.schools">
+        <div >
+          {{school.year}}
+          {{school.description}}
+          {{school.place}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-2">
+      Skills
+    </div>
+
+    <div class="col-md-8">
+      <div ng-repeat="skill in ctrl.skills">
+        <div>
+          {{skill.name}}
+          {{skill.words}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      Experiences
+    </div>
+    <div class="col-md-8">
+
+      <div ng-repeat="exp in ctrl.exps">
+        {{exp.company}}
+      </div>
+    </div>
+  </div>
+</div>

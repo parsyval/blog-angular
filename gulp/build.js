@@ -3,6 +3,8 @@
 var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
+var less = require('gulp-less');
+var uglify = require('gulp-uglifycss');
 
 var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
@@ -88,8 +90,17 @@ gulp.task('other', function () {
     .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
 });
 
+gulp.task('less', function(){
+  return gulp.src( path.join(conf.paths.src, '/app/*.less'))
+  .pipe(less())
+  .pipe(uglify({
+    "maxLineLen": 80
+  }))
+  .pipe(gulp.dest(path.join(conf.paths.src, '/app/styles')));
+})
+
 gulp.task('clean', function () {
   return $.del([path.join(conf.paths.dist, '/'), path.join(conf.paths.tmp, '/')]);
 });
 
-gulp.task('build', ['html', 'fonts', 'other']);
+gulp.task('build', ['less', 'html', 'fonts', 'other']);
